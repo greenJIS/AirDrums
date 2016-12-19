@@ -4,12 +4,11 @@ void noteOn(byte channel, byte note, byte velocity)
   midiMsg(channel+0x90, note, velocity);
 }
 void midiMsg(byte cmd, byte data1, byte data2)
-  {Serial.write(cmd);
-  
-  
+{
+  Serial.write(cmd);
   Serial.write(data1);
   Serial.write(data2);
-  }  
+}  
 const int numSnareReadings = 10;
 const int numHighHatReadings = 2;
 const int numKickReadings = 5;
@@ -71,7 +70,7 @@ void setup()
 
 void loop()
 {
-   unsigned long currentMillis = millis();
+  unsigned long currentMillis = millis();
   
   snareAverage = snareTotal / numSnareReadings;
   snareTotal = snareTotal - snareReadings[snareIndex];
